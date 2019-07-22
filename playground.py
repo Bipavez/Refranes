@@ -19,13 +19,13 @@ def show_langs():
 
 
 # print(pytesseract.image_to_data(Image.open('test6.png'), lang='spa'))
-# print(pytesseract.image_to_string(Image.open(f'img/pag9.1.png'), lang='spa'))
+print(pytesseract.image_to_string(Image.open(f'img/pag9.1.png'), lang='spa'))
 
-
+'''
 for n in range(4,11):
     with open(f'pag{n}.txt','w') as pag:
         pag.write(pytesseract.image_to_string(Image.open(f'img/pag{n}.png'), lang='spa'))
-
+'''
 '''
 Esto es una weaita que toy testeando xd
 
