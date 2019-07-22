@@ -1,2 +1,2 @@
 # Refranes
- awa de Uwu en _OWO_
+ awa de Uwu en _OWO_ con **EWE**
