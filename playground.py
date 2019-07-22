@@ -18,14 +18,16 @@ def show_langs():
         print([line.strip('\n') for line in file.readlines()])
 
 
-# print(pytesseract.image_to_data(Image.open('test6.png'), lang='spa'))
-print(pytesseract.image_to_string(Image.open(f'img/pag9.1.png'), lang='spa'))
+'''
+print(pytesseract.image_to_string(Image.open(f'refranes/refranes-002.png'), lang='spa'))
+print('\n==============\n')
+print(pytesseract.image_to_string(Image.open(f'img/pag2.png'), lang='spa'))
+'''
+for n in range(1,101):
+    with open('raws/pag{:0>3d}.txt'.format(n), 'w') as pag:
+        pag.write(pytesseract.image_to_string(Image.open('refranes/refranes-{:0>3d}.png'.format(n)), lang='spa'))
 
-'''
-for n in range(4,11):
-    with open(f'pag{n}.txt','w') as pag:
-        pag.write(pytesseract.image_to_string(Image.open(f'img/pag{n}.png'), lang='spa'))
-'''
+
 '''
 Esto es una weaita que toy testeando xd
 
