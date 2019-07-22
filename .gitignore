@@ -2,3 +2,6 @@ playground.py
 *.png
 *.jpg
 refr
+.DS_Store
+
+!img/*
