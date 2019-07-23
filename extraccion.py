@@ -10,7 +10,6 @@ def pasapalabra(pag):
     return resultado
 if __name__ == '__main__':
     with open("jiji.txt", "w") as file:
-        for i in range(1, 11):
-            print(i)
-            with open("pag{}.txt".format(i), "r") as page:
-                file.write("\n".join([*pasapalabra(page.read())]))
+        for i in range(1, 101):
+            with open("raws_bw/pag{:0>3d}.txt".format(i), "r", encoding="utf8") as page:
+                file.write("\n".join([*pasapalabra(page.read())])+"\n")
