@@ -14,7 +14,12 @@ if __name__ == '__main__':
     #         with open("raws_bw/pag{:0>3d}.txt".format(i), "r", encoding = "utf8") as page:
     #             file.write(page.read()+"\n")
     #
-    with open("jiji.txt", "w", encoding="utf8") as file:
-        for i in range(1, 101):
-            with open("raws_bw/pag{:0>3d}.txt".format(i), "r", encoding="utf8") as page:
-                file.write("\n".join([*pasapalabra(page.read())])+"\n")
+    # with open("jiji.txt", "w", encoding="utf8") as file:
+    #     for i in range(1, 101):
+    #         with open("raws_bw/pag{:0>3d}.txt".format(i), "r", encoding="utf8") as page:
+    #             file.write("\n".join([*pasapalabra(page.read())])+"\n")
+    with open("jiji.txt", "r", encoding="utf8") as file:
+        obj =  file.read().split("\n")
+    n = sum(map(lambda x: len(x), obj))/len(obj)
+    print("Promedio de refranes es %f" %n)
+    

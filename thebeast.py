@@ -13,7 +13,7 @@ import io
 # path = get_file(
 #     'nietzsche.txt',
 #     origin='https://s3.amazonaws.com/text-datasets/nietzsche.txt')
-path = "full.txt"
+path = "jiji.txt"
 with io.open(path, encoding='utf-8') as f:
     text = f.read().lower()
 print('corpus length:', len(text))
@@ -24,7 +24,7 @@ char_indices = dict((c, i) for i, c in enumerate(chars))
 indices_char = dict((i, c) for i, c in enumerate(chars))
 
 # cut the text in semi-redundant sequences of maxlen potos
-maxlen = 40
+maxlen = 35
 step = 3
 sentences = []
 next_chars = []
@@ -68,7 +68,7 @@ def on_epoch_end(epoch, _):
     print('----- Generating text after Epoch: %d' % epoch)
 
     start_index = random.randint(0, len(text) - maxlen - 1)
-    for diversity in [0.2, 0.5, 1.0, 1.2]:
+    for diversity in [0.1, 0.2, 0.5, 1.0, 1.2, 1.5]:
         print('----- diversity:', diversity)
 
         generated = ''
@@ -97,5 +97,10 @@ print_callback = LambdaCallback(on_epoch_end=on_epoch_end)
 
 model.fit(x, y,
           batch_size=128,
-          epochs=60,
+          epochs=80,
           callbacks=[print_callback])
+
+
+model_json = model.to_json()
+with open("model.json", "w") as file:
+    file.write(model_json)
